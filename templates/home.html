@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chào mừng tới dự đoán bệnh tiểu đường</title>
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .welcome-container {
+            background: rgba(255,255,255,0.95);
+            padding: 50px 70px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+            text-align: center;
+            animation: fadeIn 1.2s;
+            max-width: 800px;
+        }
+        .welcome-title {
+            font-size: 2.5rem;
+            color: #f5576c;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            font-weight: bold;
+            text-shadow: 1px 2px 8px #f093fb44;
+            transition: color 0.2s;
+        }
+        .welcome-title:hover {
+            color: #43cea2;
+            cursor: pointer;
+        }
+        .start-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 38px;
+            background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(67, 206, 162, 0.15);
+            transition: background 0.2s, color 0.2s;
+        }
+        .start-btn:hover {
+            background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+            color: #185a9d;
+        }
+        .info-section {
+            margin-top: 35px;
+            text-align: left;
+            color: #333;
+        }
+        .info-section h2 {
+            color: #f5576c;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .info-section ul {
+            padding-left: 20px;
+        }
+        .info-section li {
+            margin-bottom: 10px;
+        }
+        .info-section span {
+            color: #185a9d;
+            font-weight: bold;
+        }
+        .info-img {
+            width: 100%;
+            max-width: 350px;
+            display: block;
+            margin: 20px auto 10px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #f093fb44;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <a href="/index" style="text-decoration:none;">
+            <div class="welcome-title">Dự đoán bệnh tiểu đường</div>
+        </a>
+        <a href="/index" class="start-btn">Bắt đầu dự đoán</a>
+        <div class="info-section">
+            <h2>Giới thiệu về bệnh tiểu đường</h2>
+            <p>
+                Bệnh tiểu đường (đái tháo đường) là tình trạng lượng đường (glucose) trong máu tăng cao do cơ thể không sản xuất đủ insulin hoặc không sử dụng insulin hiệu quả. Nếu không kiểm soát tốt, bệnh có thể gây ra nhiều biến chứng nguy hiểm.
+            </p>
+            <img src="{{ url_for('static', filename='images/glucose.jpg') }}" alt="So sánh đường huyết bình thường và cao" class="info-img">
+            <h2>Các chỉ số ảnh hưởng và ngưỡng nguy cơ:</h2>
+            <ul>
+                <li><span>Số lần mang thai (Pregnancies):</span> Số lần mang thai nhiều có thể làm tăng nguy cơ tiểu đường thai kỳ ở phụ nữ.</li>
+                <li><span>Nồng độ Glucose:</span> <b>Glucose &gt; 126 mg/dL</b> lúc đói là dấu hiệu chính của tiểu đường.</li>
+                <li><span>Huyết áp (Blood Pressure):</span> Huyết áp cao (&gt; 80 mmHg) làm tăng nguy cơ biến chứng.</li>
+                <li><span>Độ dày da (Skin Thickness):</span> Độ dày da lớn (&gt; 20 mm) phản ánh lượng mỡ dưới da cao, liên quan đến béo phì.</li>
+                <li><span>Nồng độ Insulin:</span> Insulin thấp hoặc cao bất thường (&lt; 16 hoặc &gt; 166 mu U/ml) là dấu hiệu rối loạn chuyển hóa.</li>
+                <li><span>Chỉ số BMI:</span> <b>BMI &gt; 25</b> là thừa cân, <b>BMI &gt; 30</b> là béo phì, nguy cơ tiểu đường tăng cao.</li>
+                <li><span>Chỉ số di truyền (Diabetes Pedigree Function):</span> Chỉ số càng cao (&gt; 0.5), nguy cơ di truyền càng lớn.</li>
+                <li><span>Tuổi (Age):</span> Tuổi càng cao (&gt; 45 tuổi), nguy cơ mắc bệnh càng lớn.</li>
+            </ul>
+            <img src="{{ url_for('static', filename='images/diabetes.png') }}" alt="Cơ chế bệnh tiểu đường" class="info-img">
+            <p style="font-size:0.95rem;color:#555;">
+               <h3>🎯 Hệ thống sẽ dựa trên các chỉ số này để dự đoán nguy cơ mắc bệnh tiểu đường của bạn.</h3>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
